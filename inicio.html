@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MusicZone</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="inicioStyle.css">
+</head>
+
+<header>
+
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+
+            <div class="container-fluid">
+
+                <a class="navbar-brand" href="#">MusicZone🎵</a>
+
+                <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+
+                    <span class="navbar-toggler-icon"></span>
+
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+
+                        <a class="nav-link active" aria-current="page" href="#"> Inicio </a>
+                        <a class="nav-link" href="nosotros.html"> Nosotros </a>
+
+                        <a class="nav-link" href="#"> Catalogo </a>
+
+                        <a class="nav-link" href="#"> Novedades </a>
+
+                        <a class="nav-link" href="#"> Contacto </a>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+<body>
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="imgCarrusel/bateria.jpg" class="d-block w-100" alt="Imagen no encontrada">
+        </div>
+
+        <div class="carousel-item">
+          <img src="imgCarrusel/guitarra-electrica.jpg" class="d-block w-100" alt="Imagen no encontrada">
+        </div>
+
+        <div class="carousel-item">
+          <img src="imgCarrusel/guitarra.jpg" class="d-block w-100" alt="Imagen no encontrada">
+        </div>
+
+    </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <section class="container text-center my-5">
+
+        <h1>Bienvenidos a MusicZone 🎵</h1>
+
+        <p> En MusicZone encontrarás instrumentos musicales para todos los amantes de la música, desde principiantes hasta músicos experimentados
+            Explora nuestro catálogo y encuentra el instrumento perfecto para comenzar o continuar tu camino musical. </p>
+
+    </section>
+
+    <section class="container my-5">
+
+        <h2 class="text-center mb-4"> Instrumentos destacados </h2>
+
+        <div class="row">
+
+            <div class="col-md-4">
+                
+                <div class="card h-100" >
+                                
+                    <img src="imgDestacados/guitarra-acustica-dest.jpg" class="card-img-top imagen-producto-dest" alt="Guitarra eléctrica">
+                                
+                    <div class="card-body">
+                    
+                        <h5 class="card-title">Guitarra acustica</h5>
+                    
+                        <p class="card-text"> Guitarra acustica ideal para comenzar a tocar </p>
+                    
+                        <p class="card-text"> <strong>$75.990</strong> </p>
+                    
+                        <a href="#" class="btn btn-dark">Ver producto</a>
+                    
+                    </div>
+                </div>  
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100" >
+                                
+                    <img src="imgDestacados/bateria-dest.jpg" class="card-img-top imagen-producto-dest" alt="Guitarra eléctrica">
+                                
+                    <div class="card-body">
+                    
+                        <h5 class="card-title">Bateria</h5>
+                    
+                        <p class="card-text">Bateria especial para los amantes de la emoción </p>
+                    
+                        <p class="card-text"> <strong>$799.990</strong> </p>
+                    
+                        <a href="#" class="btn btn-dark">Ver producto</a>
+                    
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100">
+                                
+                    <img src="imgDestacados/piano-dest.jpg" class="card-img-top imagen-producto-dest" alt="Guitarra eléctrica">
+                                
+                    <div class="card-body">
+                    
+                        <h5 class="card-title">Piano eléctrico</h5>
+                    
+                        <p class="card-text"> Piano eléctrico, uno de los modelas mas versatiles</p>
+                    
+                        <p class="card-text"> <strong>$249.990</strong> </p>
+                    
+                        <a href="#" class="btn btn-dark">Ver producto</a>
+                    
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer class="text-center text-white py-4">
+
+        <h5>MusicZone🎵</h5>
+
+        <p> Tu tienda de instrumentos musicales</p>
+
+        <p>© 2026 MusicZone - Todos los derechos reservados </p>
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
