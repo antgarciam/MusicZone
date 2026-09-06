@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de sesión</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="loginStyle.css">
+</head>
+<body>
+
+<div class="position-absolute top-0 start-0 m-3" style="z-index: 1050;">
+    <a href="inicio.html" class="btn btn-outline-dark text-white d-flex align-items-center gap-2 fw-bold shadow-sm bg-dark w-100 text-decoration-none">
+        ⬅️ Volver al Inicio
+    </a>
+</div>
+
+<div class="pt-5"></div>
+<div class="container d-flex justify-content-center align-items-center vh-100">
+        
+    <div class="card shadow-lg p-4 border-0" style="max-width: 400px; width: 100%; border-radius: 12px;">
+        <div class="card-body">
+            
+            <div class="text-center mb-4">
+                <h2 class="fw-bold mb-1">MusicZone🎵</h2>
+                <p class="text-muted small">Ingresa tus credenciales para continuar</p>
+            </div>
+
+            <form id="form-login">
+
+                <div class="mb-3">
+                    <label for="inputUsuario" class="form-label fw-semibold small">Usuario o Correo</label>
+                    <input type="text" class="form-control" id="correo" placeholder="ejemplo@correo.cl">
+                </div>
+
+                <div class="mb-4">
+                    <label for="inputPassword" class="form-label fw-semibold small">Contraseña</label>
+                    <input type="password" class="form-control" id="clave" placeholder="••••••••">
+                </div>
+
+                <button type="button" onclick="ingresar()" class="btn btn-dark w-100 fw-bold py-2 mb-3">
+                    Ingresar
+                </button>
+
+            </form>
+
+            <div class="text-center">
+                <a href="contacto.html" class="text-decoration-none small text-muted">¿Olvidaste tu contraseña?</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+    <script src="login.js"></script>
+
+
+    
+</body>
+</html>

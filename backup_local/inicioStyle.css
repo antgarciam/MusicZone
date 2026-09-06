@@ -1,0 +1,26 @@
+.navbar {
+    background-color: #1a1a1a !important;
+}
+
+.navbar-brand,
+.nav-link {
+    color: white !important;
+}
+
+.nav-link:hover {
+    color: #ffcc00 !important;
+}
+
+.carousel-item img {
+    height: 600px;
+    object-fit: cover;
+}
+
+.imagen-producto-dest {
+    height: 350px;
+    object-fit: cover;
+}
+
+footer {
+    background-color: #1a1a1a;
+}

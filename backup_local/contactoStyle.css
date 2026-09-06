@@ -1,0 +1,65 @@
+.mapa-contenedor {
+    cursor: zoom-in;
+    display: block;
+}
+
+.mapa-miniatura {
+    object-fit: cover;
+    max-height: 300px;
+}
+
+#zoom-mapa:checked ~ .mapa-lightbox {
+    display: flex !important;
+}
+
+.mapa-lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-cerrar-lightbox {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1.5rem;
+    background-color: #dc3545; 
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    transition: background-color 0.2s ease;
+}
+
+.btn-cerrar-lightbox:hover {
+    background-color: #bb2d3b;
+}
+
+.mapa-grande {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.nav-link:hover {
+    color: #ffcc00 !important;
+}
+
+footer {
+    background-color: #1a1a1a;
+}
