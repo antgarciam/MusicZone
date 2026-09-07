@@ -1,0 +1,24 @@
+html {
+    height: 100%;
+}
+
+
+body {
+    background: linear-gradient(180deg, #aaa2a2 0%, #ffffff 100%) !important;
+    background-attachment: fixed !important;
+    
+    margin: 0 !important;
+    padding: 0 !important;
+    
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-link:hover {
+    color: #ffcc00 !important;
+}
+
+footer {
+    margin-top: auto !important;
+}

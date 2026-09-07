@@ -1,15 +1,8 @@
-.navbar {
-    background-color: #1a1a1a !important;
-}
-
-.navbar-brand,
-.nav-link {
-    color: white !important;
-}
 
 .nav-link:hover {
     color: #ffcc00 !important;
 }
+
 
 .carousel-item img {
     height: 600px;
@@ -23,4 +16,11 @@
 
 footer {
     background-color: #1a1a1a;
+}
+
+body{
+    background: linear-gradient(180deg, #aaa2a2 0%, #ffffff 100%);
+    
+    background-attachment: fixed;
+
 }
