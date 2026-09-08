@@ -380,33 +380,37 @@ let catalogo = [
 ];
 
 let lista = document.getElementById("listaCatalogo");
-lista.innerHTML = ""; 
 
-for (let i = 0; i < catalogo.length; i++) {
-    lista.innerHTML += `
-        <div class="col">
-            <div class="card h-100 shadow-sm border-0" style="border-radius: 15px; overflow: hidden;">
-                
-                <!-- Contenedor superior para la imagen con fondo claro y centrado perfecto -->
-                <div class="bg-light p-3 d-flex justify-content-center align-items-center" style="height: 220px;">
-                    <img src="${catalogo[i].imagen}" class="img-fluid rounded" style="max-height: 100%; object-fit: contain;" alt="${catalogo[i].nombre}">
-                </div>
-                
-                <!-- Cuerpo de la tarjeta -->
-                <div class="card-body d-flex flex-column text-center">
-                    <h5 class="card-title fw-bold text-dark mb-2">${catalogo[i].nombre}</h5>
-                    <p class="card-text text-success fw-bold fs-5 mb-3">Precio: $${catalogo[i].precio.toLocaleString('es-CL')}</p>
+if (lista) { 
+    lista.innerHTML = ""; 
+
+    for (let i = 0; i < catalogo.length; i++) {
+        lista.innerHTML += `
+            <div class="col">
+                <div class="card h-100 shadow-sm border-0" style="border-radius: 15px; overflow: hidden;">
                     
-                    <!-- Botón corporativo de MusicZone estilo Bootstrap -->
-                    <button class="btn btn-dark w-100 mt-auto fw-semibold" style="border-radius: 8px;" onclick="verDetalle(${catalogo[i].id})">
-                        🔍 Ver detalle
-                    </button>
-                </div>
+                    <!-- Contenedor superior para la imagen con fondo claro y centrado perfecto -->
+                    <div class="bg-light p-3 d-flex justify-content-center align-items-center" style="height: 220px;">
+                        <img src="${catalogo[i].imagen}" class="img-fluid rounded" style="max-height: 100%; object-fit: contain;" alt="${catalogo[i].nombre}">
+                    </div>
+                    
+                    <!-- Cuerpo de la tarjeta -->
+                    <div class="card-body d-flex flex-column text-center">
+                        <h5 class="card-title fw-bold text-dark mb-2">${catalogo[i].nombre}</h5>
+                        <p class="card-text text-success fw-bold fs-5 mb-3">Precio: $${catalogo[i].precio.toLocaleString('es-CL')}</p>
+                        
+                        <!-- Botón corporativo de MusicZone estilo Bootstrap -->
+                        <button class="btn btn-dark w-100 mt-auto fw-semibold" style="border-radius: 8px;" onclick="verDetalle(${catalogo[i].id})">
+                            Ver detalle
+                        </button>
+                    </div>
 
+                </div>
             </div>
-        </div>
-    `;
+        `;
+    }
 }
+
 
 function verDetalle(id) {
     let catalogoSeleccionado = null;
@@ -423,3 +427,73 @@ function verDetalle(id) {
         window.location.href = "detalle.html";
     }
 }
+
+// ==========================================
+// 🛠️ COMPONENTE: GESTIÓN DE ADMINISTRACIÓN SIMPLIFICADA (CON MEMORIA REAL)
+// ==========================================
+
+// 1. OBTENEMOS LA LISTA MODIFICADA O RECURRIMOS A TUS 54 PRODUCTOS BASE
+let listaAdministrada = JSON.parse(localStorage.getItem("listaCompletaProductos")) || catalogo;
+
+document.addEventListener("DOMContentLoaded", function() {
+    let tbody = document.getElementById("tabla-productos-admin");
+    if (tbody) {
+        tbody.innerHTML = "";
+        // Recorremos la lista que tiene memoria para armar la tabla
+        listaAdministrada.forEach(producto => {
+            tbody.innerHTML += `
+                <tr>
+                    <td><img src="${producto.imagen}" width="50" class="rounded border"></td>
+                    <td class="fw-bold">${producto.nombre}</td>
+                    <td class="text-muted small">${producto.descripcion}</td>
+                    <td class="text-success fw-bold">$${producto.precio.toLocaleString('es-CL')}</td>
+                    <td>
+                        <button class="btn btn-warning btn-sm" onclick="modificarAtributos(${producto.id})">✏️ Modificar</button>
+                        <button class="btn btn-danger btn-sm" onclick="eliminarFila(this, ${producto.id})">🗑️ Eliminar</button>
+                    </td>
+                </tr>`;
+        });
+    }
+});
+
+// 2. MODIFICAR ATRIBUTOS DEL OBJETO Y GUARDAR EN MEMORIA
+function modificarAtributos(id) {
+    // Buscamos el instrumento exacto dentro de la lista administrada
+    let producto = listaAdministrada.find(p => p.id === id);
+    
+    if (producto) {
+        let nuevoNombre = prompt("Modificar Nombre:", producto.nombre);
+        let nuevoPrecio = prompt("Modificar Precio ($):", producto.precio);
+        let nuevaDesc = prompt("Modificar Descripción:", producto.descripcion);
+
+        if (nuevoNombre && nuevoPrecio && nuevaDesc) {
+            // Modificamos las propiedades del objeto en tiempo real
+            producto.nombre = nuevoNombre;
+            producto.precio = parseInt(nuevoPrecio);
+            producto.descripcion = nuevaDesc;
+            
+            // 💾 LA MAGIA: Guardamos la lista con el cambio permanente en el navegador
+            localStorage.setItem("listaCompletaProductos", JSON.stringify(listaAdministrada));
+            
+            alert("¡Producto modificado con éxito! Al aceptar se actualizará la tabla.");
+            window.location.reload(); // Recarga la página automáticamente para ver el cambio listo
+        }
+    }
+}
+
+// 3. ELIMINAR LA FILA DE LA MEMORIA Y DE LA PANTALLA
+function eliminarFila(boton, id) {
+    if (confirm("¿Deseas eliminar este producto por completo de la tienda?")) {
+        // Removemos el objeto del array en memoria
+        listaAdministrada = listaAdministrada.filter(p => p.id !== id);
+        
+        // 💾 Guardamos la lista sin el producto borrado
+        localStorage.setItem("listaCompletaProductos", JSON.stringify(listaAdministrada));
+        
+        // Borramos la fila visualmente
+        boton.closest("tr").remove();
+    }
+}
+
+
+
